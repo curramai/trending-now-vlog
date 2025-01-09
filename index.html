@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Now Vlog</title>
+    <style>
+        /* Estilo global */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #009688, #0000);
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px 20px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Logo */
+        .logo {
+            font-size: 2rem;
+            color: #009688;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Título */
+        h1 {
+            font-size: 2.5rem;
+            color: #000;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Subtítulo */
+        h2 {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        /* Caja de información */
+        .info-box {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.6;
+            padding: 15px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Caja de suscripción */
+        .subscribe-box {
+            background: #009688;
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Texto de la suscripción */
+        .subscribe-box h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .subscribe-box p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        /* Formulario de suscripción */
+        .subscribe-box input[type="email"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .subscribe-box button {
+            width: 80%;
+            padding: 10px;
+            background-color: #fff;
+            color: #009688;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .subscribe-box button:hover {
+            background-color: #00796b;
+            color: #fff;
+        }
+
+        /* Botón de PayPal */
+        .paypal-button-container {
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            font-size: 0.8rem;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        .footer a {
+            color: #009688;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilos Responsivos */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .info-box {
+                font-size: 0.8rem;
+            }
+
+            .paypal-button-container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo">
+            Trending Now Vlog
+        </div>
+
+        <div class="info-box">
+            <p><strong>TNV</strong> brings you the latest updates from all around the world in business, marketing, and trends.<
+        </div>
+
+        <div class="subscribe-box">
+            <h3>Join for Only $20/month</h3>
+            <p>Gain Access to Exclusive Strategies, Insights, and Tips! Join a growing community of +100,000 inspired individual
+
+
+            <div class="paypal-button-container" id="paypal-button-container-P-9SK59765J51165948M56K2VA"></div>
+
+            <!-- Script para el botón de PayPal -->
+            <script src="https://www.paypal.com/sdk/js?client-id=AcdISQmd7Mg6jw0YoZX55vyjtUtdf6SVeeDpjD__jiV8Wc_4joufrFTrh93IPGa
+            <script>
+              paypal.Buttons({
+                  style: {
+                      shape: 'rect',
+                      color: 'gold',
+                      layout: 'vertical',
+                      label: 'subscribe'
+                  },
+                  createSubscription: function(data, actions) {
+                    return actions.subscription.create({
+                      plan_id: 'P-9SK59765J51165948M56K2VA'
+                    });
+                  },
+                  onApprove: function(data, actions) {
+                    alert(data.subscriptionID); // Mensaje de éxito al aprobar
+                  }
+              }).render('#paypal-button-container-P-9SK59765J51165948M56K2VA');
+            </script>
+        </div>
+
+        <div class="footer">
+            <p>By subscribing, you agree to our <a href="terminosycondiciones.html">Terms & Conditions</a>.</p>
+        </div>
+    </div>
+
+</body>
+</html>
+
