@@ -188,9 +188,8 @@ src="https://www.facebook.com/tr?id=687948063697847&ev=PageView&noscript=1"
         <div class="subscribe-box">
             <h3>Join for a trial for just $5</h3>
             <p>Gain Access to Exclusive Strategies, Insights, and Tips! Join a growing community of +100,000 inspired individuals who receive our exclusive content.</p>
-
-            <div id="paypal-button-container-P-31X885889F837315UM7KMFTA"></div>
-<script src="https://www.paypal.com/sdk/js?client-id=AcdISQmd7Mg6jw0YoZX55vyjtUtdf6SVeeDpjD__jiV8Wc_4joufrFTrh93IPGawN71sQL9rCXCyBHOH&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+               <div id="paypal-button-container-P-0NG78849KT7633344NAABLGI"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=ASqCGJWPu5V-j2e_LLMclfSgkThP4CuDiyPQcbxxYA3oHsVKYImYid9kKds1qsLWG9zsRELUHgs8pGIE&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 <script>
   paypal.Buttons({
       style: {
@@ -202,16 +201,14 @@ src="https://www.facebook.com/tr?id=687948063697847&ev=PageView&noscript=1"
       createSubscription: function(data, actions) {
         return actions.subscription.create({
           /* Creates the subscription */
-          plan_id: 'P-31X885889F837315UM7KMFTA'
+          plan_id: 'P-0NG78849KT7633344NAABLGI'
         });
       },
       onApprove: function(data, actions) {
         alert(data.subscriptionID); // You can add optional success message for the subscriber here
       }
-  }).render('#paypal-button-container-P-31X885889F837315UM7KMFTA'); // Renders the PayPal button
+  }).render('#paypal-button-container-P-0NG78849KT7633344NAABLGI'); // Renders the PayPal button
 </script>
-
-        <div class="footer">
             <p>By subscribing, you agree to our <a href="terminosycondiciones.html">Terms & Conditions</a>.</p>
         </div>
     </div>
