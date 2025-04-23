@@ -3,163 +3,472 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trending Now Vlog</title>
+    <title>Premium Access to Trends & Business Insights | Trending Now Vlog</title> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilo global */
+        /* Variables for easier theme management */
+        :root {
+            --primary-color: #006d77; /* A calm, sophisticated teal */
+            --primary-color-dark: #004c54;
+            --secondary-color: #e2f3f5; /* Very light teal */
+            --accent-color: #ff8c42; /* A soft, modern orange */
+            --background-color: #f8f9fa; /* Clean off-white background */
+            --container-bg: #ffffff; /* Pure white container */
+            --text-color-dark: #212529; /* Very dark grey */
+            --text-color-medium: #495057; /* Medium grey */
+            --text-color-light: #ffffff;
+            --border-radius-small: 4px;
+            --border-radius-medium: 8px;
+            --border-radius-large: 16px;
+            --box-shadow-subtle: 0 4px 8px rgba(0, 0, 0, 0.05);
+            --box-shadow-medium: 0 10px 20px rgba(0, 0, 0, 0.08);
+            --box-shadow-accent: 0 8px 15px rgba(255, 140, 66, 0.3); /* Shadow matching accent color */
+        }
+
+        /* Mobile-First Global Styles */
         body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Helvetica', sans-serif;
+            font-family: 'Inter', sans-serif; /* Modern, versatile font */
             display: flex;
-            justify-content: center;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: flex-start; /* Align items to the top */
             align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #009688, #0000);
-            color: #fff;
-            overflow: hidden;
+            min-height: 100vh;
+            background: var(--background-color);
+            color: var(--text-color-dark);
+            line-height: 1.6;
+            padding: 15px; /* Mobile-friendly padding */
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
 
+         /* No complex background patterns or animations on body for mobile */
+
+
         .container {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px 20px;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 500px;
+            background: var(--container-bg);
+            padding: 25px; /* Mobile-friendly padding */
+            border-radius: var(--border-radius-medium);
+            width: 100%;
+            max-width: 500px; /* Max width for the main content block */
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--box-shadow-medium);
+            position: relative;
+            z-index: 1;
+            margin-top: 20px; /* Space from the top */
+            margin-bottom: 20px; /* Space from the bottom */
         }
+
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
 
         /* Logo */
         .logo {
-            font-size: 2rem;
-            color: #009688;
+            font-size: 2rem; /* Adjusted size for mobile */
+            color: var(--primary-color-dark);
             font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        /* Título */
-        h1 {
-            font-size: 2.5rem;
-            color: #000;
-            margin-bottom: 10px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        /* Subtítulo */
-        h2 {
-            font-size: 1rem;
-            color: #333;
             margin-bottom: 20px;
-            font-weight: 300;
+            position: relative;
+            display: inline-block;
         }
 
-        /* Caja de información */
-        .info-box {
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            color: #555;
-            line-height: 1.6;
-            padding: 15px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
+         .logo::after {
+             content: '';
+             display: block;
+             width: 60px; /* Shorter underline */
+             height: 2px;
+             background: var(--accent-color);
+             margin: 5px auto 0;
+             border-radius: 1px;
+         }
 
-        /* Caja de suscripción */
+
+        /* Main Headline */
+         h2 {
+             font-size: 1.5rem; /* Adjusted size for mobile */
+             color: var(--text-color-dark);
+             margin-bottom: 15px; /* Reduced margin */
+             font-weight: 600;
+             line-height: 1.3;
+             max-width: 90%; /* Responsive width */
+             margin-left: auto;
+             margin-right: auto;
+         }
+
+         h2 strong {
+             color: var(--primary-color);
+         }
+
+         /* Concise Intro Paragraph */
+         .intro-text {
+             font-size: 1rem;
+             color: var(--text-color-medium);
+             margin-bottom: 25px; /* Space before CTA */
+             line-height: 1.5;
+         }
+
+
+        /* Subscribe Box (PRIORITIZED) */
         .subscribe-box {
-            background: #009688;
-            color: white;
-            padding: 20px;
-            border-radius: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark)); /* Gradient for depth */
+            color: var(--text-color-light);
+            padding: 30px 20px; /* Mobile-friendly padding */
+            border-radius: var(--border-radius-large);
+            margin-bottom: 30px; /* Space below CTA */
+            box-shadow: var(--box-shadow-accent); /* Accent colored shadow */
+            position: relative;
+            overflow: hidden;
+            border: none;
+            text-align: center; /* Center text */
+            width: 100%; /* Take full width of container */
+            box-sizing: border-box;
         }
 
-        /* Texto de la suscripción */
+         .subscribe-box .content { /* Ensure content inside subscribe box is above pattern */
+            position: relative;
+            z-index: 1;
+        }
+
+         /* List inside subscribe box */
+        .subscribe-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 20px 0; /* Adjust margin */
+            text-align: left; /* Align list items left */
+            max-width: 280px; /* Limit list width for readability */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subscribe-box li {
+            margin-bottom: 8px; /* Reduced margin */
+            padding-left: 20px;
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem; /* Slightly smaller text */
+            line-height: 1.4;
+        }
+
+        .subscribe-box li::before {
+            content: '→'; /* Arrow icon */
+            position: absolute;
+            left: 0;
+            color: var(--accent-color); /* Accent color for icon */
+            font-weight: 700;
+        }
+
+
+        /* Subscription Text */
         .subscribe-box h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 15px;
+            font-size: 1.8rem; /* Adjusted size for mobile */
+            font-weight: 700;
+            margin-bottom: 8px; /* Reduced margin */
+            color: var(--text-color-light);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            line-height: 1.2;
         }
 
         .subscribe-box p {
-            font-size: 1rem;
-            margin-bottom: 20px;
-            font-weight: 300;
+            font-size: 1.1rem; /* Adjusted size for mobile */
+            margin-bottom: 20px; /* Space above button or list */
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
         }
 
-        /* Formulario de suscripción */
-        .subscribe-box input[type="email"] {
-            width: 80%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 2px solid #fff;
-            border-radius: 10px;
-            font-size: 1rem;
-        }
+         .subscribe-box p strong {
+             color: var(--accent-color); /* Highlight with accent */
+         }
 
-        .subscribe-box button {
-            width: 80%;
-            padding: 10px;
-            background-color: #fff;
-            color: #009688;
-            font-size: 1rem;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .subscribe-box button:hover {
-            background-color: #00796b;
-            color: #fff;
-        }
-
-        /* Botón de PayPal */
+        /* PayPal Button Container (styling the container) */
         .paypal-button-container {
-            margin-top: 20px;
+            margin-top: 20px; /* Space above button */
+            margin-bottom: 20px;
+            /* The PayPal script renders the button here. */
+            /* Ensure it takes appropriate width on mobile */
         }
+
+         /* Optional: Style for the PayPal button rendered by the script */
+         /* Targeting specific classes might be necessary */
+         #paypal-button-container-P-0NG78849KT7633344NAABLGI {
+             width: 100%; /* Ensure button container is responsive */
+             max-width: 300px; /* Optional: limit max width on wider screens */
+             margin-left: auto;
+             margin-right: auto;
+         }
+
+         #paypal-button-container-P-0NG78849KT7633344NAABLGI .paypal-button {
+              transition: transform 0.2s ease; /* Softer transition */
+         }
+
+         #paypal-button-container-P-0NG78849KT7633344NAABLGI .paypal-button:hover {
+              transform: translateY(-1px); /* Subtle lift */
+              box-shadow: var(--box-shadow-accent); /* Add subtle shadow */
+         }
+
+
+        /* Value Proposition Section (Simplified) */
+        .value-prop-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--secondary-color);
+            border-radius: var(--border-radius-medium);
+            box-shadow: var(--box-shadow-subtle);
+            text-align: left;
+            border-left: 4px solid var(--primary-color);
+        }
+
+         .value-prop-section h3 {
+             font-size: 1.3rem;
+             color: var(--primary-color-dark);
+             margin-top: 0;
+             margin-bottom: 15px;
+             font-weight: 600;
+         }
+
+         .value-prop-section p {
+             font-size: 0.95rem;
+             color: var(--text-color-medium);
+             line-height: 1.5;
+         }
+
+
+        /* Social Proof/Testimonials (More Compact) */
+        .testimonials-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--background-color); /* Use background color for subtlety */
+            border-radius: var(--border-radius-medium);
+            color: var(--text-color-dark);
+            text-align: center;
+            box-shadow: var(--box-shadow-subtle);
+        }
+
+         .testimonials-section h3 {
+             font-size: 1.4rem;
+             margin-top: 0;
+             margin-bottom: 20px;
+             font-weight: 600;
+             color: var(--primary-color-dark);
+         }
+
+         .testimonial {
+             margin-bottom: 15px; /* Reduced margin */
+             font-style: italic;
+             font-size: 0.95rem; /* Adjusted size */
+             line-height: 1.5;
+             padding: 10px; /* Reduced padding */
+             background: var(--container-bg); /* Use container background */
+             border-radius: var(--border-radius-small);
+             border: 1px solid var(--secondary-color); /* Subtle border */
+             text-align: left;
+         }
+
+         .testimonial p {
+             margin: 0 0 8px 0; /* Reduced margin */
+             color: var(--text-color-medium); /* Medium grey for testimonial text */
+             font-size: 0.95rem;
+             font-style: italic;
+         }
+
+         .testimonial .author {
+             font-weight: 500; /* Less bold */
+             color: var(--primary-color); /* Primary color for author */
+             font-style: normal;
+             font-size: 0.85rem;
+             text-align: right;
+             display: block;
+         }
+
+
+        /* Trust Badges Section (Placeholder) */
+        .trust-badges {
+            margin-top: 20px;
+            text-align: center;
+            color: var(--text-color-medium);
+            font-size: 0.85rem;
+            opacity: 0.9; /* Slightly more visible */
+        }
+
+         .trust-badges img {
+             height: 25px; /* Smaller size */
+             margin: 0 8px;
+             opacity: 0.8;
+         }
+
+
+        /* Terms and Conditions Link */
+        .subscribe-box > .content > p:last-child a { /* Target the specific link */
+            color: rgba(255, 255, 255, 0.8); /* Lighter white */
+            text-decoration: underline;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .subscribe-box > .content > p:last-child a:hover {
+            color: var(--text-color-light);
+        }
+
 
         /* Footer */
         .footer {
             font-size: 0.8rem;
-            color: #555;
-            margin-top: 20px;
+            color: var(--text-color-medium);
+            margin-top: 40px;
+            margin-bottom: 20px; /* Space at the bottom */
+            opacity: 0.9;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0;
         }
 
         .footer a {
-            color: #009688;
+            color: var(--primary-color);
             text-decoration: none;
+            transition: text-decoration 0.3s ease;
         }
 
         .footer a:hover {
             text-decoration: underline;
         }
 
-        /* Estilos Responsivos */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
 
-            h1 {
-                font-size: 2rem;
-            }
+        /* Desktop Styles (Enhancements for larger screens) */
+        @media (min-width: 601px) {
+             body {
+                 padding: 30px; /* More padding on desktop */
+             }
 
-            .info-box {
-                font-size: 0.8rem;
-            }
+             .container {
+                 padding: 40px; /* More padding on desktop */
+                 max-width: 600px; /* Slightly wider max width */
+                 margin-top: 40px;
+                 margin-bottom: 40px;
+             }
 
-            .paypal-button-container {
-                width: 100%;
-            }
+             .logo {
+                 font-size: 2.5rem;
+                 margin-bottom: 25px;
+             }
+
+             .logo::after {
+                 width: 80px; /* Longer underline */
+                 height: 3px;
+             }
+
+             h2 {
+                 font-size: 2rem;
+                 margin-bottom: 20px;
+                 max-width: 100%; /* Allow full width */
+             }
+
+             .intro-text {
+                 font-size: 1.1rem;
+                 margin-bottom: 30px;
+             }
+
+
+             .subscribe-box {
+                 padding: 40px 30px; /* More padding on desktop */
+                 margin-bottom: 40px;
+             }
+
+              .subscribe-box h3 {
+                 font-size: 2.2rem;
+                 margin-bottom: 10px;
+              }
+
+              .subscribe-box p {
+                 font-size: 1.2rem;
+                 margin-bottom: 25px;
+              }
+
+             .subscribe-box ul {
+                 margin: 20px 0 25px 0; /* Adjust margin */
+                 max-width: 320px; /* Limit list width for readability */
+             }
+
+              .subscribe-box li {
+                  font-size: 1rem;
+                  padding-left: 25px;
+              }
+
+
+             .paypal-button-container {
+                  margin-top: 25px;
+                  margin-bottom: 25px;
+                  max-width: 320px; /* Slightly wider button on desktop */
+             }
+
+             .value-prop-section {
+                 padding: 30px;
+                 margin-bottom: 40px;
+             }
+
+              .value-prop-section h3 {
+                 font-size: 1.4rem;
+              }
+
+              .value-prop-section p {
+                 font-size: 1rem;
+              }
+
+
+             .testimonials-section {
+                 padding: 30px;
+                 margin-bottom: 40px;
+             }
+
+              .testimonials-section h3 {
+                 font-size: 1.5rem;
+                 margin-bottom: 25px;
+              }
+
+              .testimonial {
+                 padding: 15px;
+                 margin-bottom: 20px;
+                 font-size: 1rem;
+              }
+
+               .testimonial p {
+                 font-size: 1rem;
+                 margin-bottom: 10px;
+               }
+
+               .testimonial .author {
+                 font-size: 0.9rem;
+               }
+
+             .trust-badges {
+                 margin-top: 30px;
+                 font-size: 0.9rem;
+             }
+
+              .trust-badges img {
+                 height: 30px;
+                 margin: 0 10px;
+              }
+
+
+             .footer {
+                 margin-top: 50px;
+                 margin-bottom: 30px;
+             }
+
         }
+
+         /* No complex animations for subtlety and performance */
+
     </style>
 </head>
 <body>
-<!-- Meta Pixel Code -->
-<script>
+    <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -168,55 +477,77 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '687948063697847');
+fbq('init', 'YOUR_PIXEL_ID'); // **REMEMBER TO REPLACE WITH YOUR ACTUAL PIXEL ID**
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=687948063697847&ev=PageView&noscript=1"
+src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1" // **REMEMBER TO REPLACE WITH YOUR ACTUAL PIXEL ID**
 /></noscript>
-<!-- End Meta Pixel Code -->
-    
-    <div class="container">
-        <!-- Logo -->
-        <div class="logo">
-            Trending Now Vlog
-        </div>
+<div class="container">
+        <div class="content"> <div class="logo">
+                Trending Now Vlog
+            </div>
 
-        <div class="info-box">
-            <p><strong>TNV</strong> brings you the latest updates from all around the world in business, marketing, and trends.</p>
-        </div>
+             <h2>Get <strong>Premium</strong> Access to Trends Driving Your Success and Style.</h2> <p class="intro-text">Your essential source for understanding the future in **business, technology, fashion, and lifestyle**.</p> <div class="subscribe-box">
+                <div class="content"> <h3>Exclusive Trial for Just $5!</h3> <p>Join our community of over <strong>+100,000</strong> visionaries and get **instant** access to our premium content:</p> <ul>
+                        <li>Cutting-edge market analysis and **business opportunities**.</li> <li>Actionable **digital marketing and technology** strategies.</li> <li>The latest **trends in fashion and lifestyle**.</li> <li>Exclusive reports and **key daily news**.</li> </ul>
 
-        <div class="subscribe-box">
-            <h3>Join for a trial for just $5</h3>
-            <p>Gain Access to Exclusive Strategies, Insights, and Tips! Join a growing community of +100,000 inspired individuals who receive our exclusive content.</p>
-            
-            <div id="paypal-button-container-P-31X885889F837315UM7KMFTA"></div>
-               <div id="paypal-button-container-P-31X885889F837315UM7KMFTA"></div>
-<script src="https://www.paypal.com/sdk/js?client-id=AcdISQmd7Mg6jw0YoZX55vyjtUtdf6SVeeDpjD__jiV8Wc_4joufrFTrh93IPGawN71sQL9rCXCyBHOH&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
-<script>
-  paypal.Buttons({
-      style: {
-          shape: 'pill',
-          color: 'gold',
-          layout: 'vertical',
-          label: 'subscribe'
-      },
-      createSubscription: function(data, actions) {
-        return actions.subscription.create({
-          /* Creates the subscription */
-          plan_id: 'P-31X885889F837315UM7KMFTA'
-        });
-      },
-      onApprove: function(data, actions) {
-        alert(data.subscriptionID); // You can add optional success message for the subscriber here
-      }
-  }).render('#paypal-button-container-P-31X885889F837315UM7KMFTA'); // Renders the PayPal button
-</script>
-               
-        <div class="footer">
-            <p>By subscribing, you agree to our <a href="terminosycondiciones.html">Terms & Conditions</a>.</p>
+
+                    <div id="paypal-button-container-P-0NG78849KT7633344NAABLGI" class="paypal-button-container"></div>
+                    <script src="https://www.paypal.com/sdk/js?client-id=ASqCGJWPu5V-j2e_LLMclfSgkThP4CuDiyPQcbxxYA3oHsVKYImYid9kKds1qsLWG9zsRELUHgs8pGIE&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+                    <script>
+                        paypal.Buttons({
+                            style: {
+                                shape: 'pill',
+                                color: 'gold', /* Gold is attention-grabbing */
+                                layout: 'vertical',
+                                label: 'subscribe',
+                                 height: 50, /* Taller button */
+                                 tagline: 'false' /* Hide PayPal tagline */
+                            },
+                            createSubscription: function(data, actions) {
+                                return actions.subscription.create({
+                                    plan_id: 'P-0NG78849KT7633344NAABLGI'
+                                });
+                            },
+                            onApprove: function(data, actions) {
+                                alert('Subscription successful! Your Subscription ID: ' + data.subscriptionID); // Translated alert
+                                // ** IMPORTANT: Redirect to a thank you page or handle post-subscription logic here **
+                                // window.location.href = 'thank_you_page.html';
+                            },
+                             onCancel: function (data) {
+                                 alert('Subscription cancelled.'); // Translated alert
+                             },
+                             onError: function (err) {
+                                 alert('An error occurred during the subscription process. Please try again.'); // Translated alert
+                                 console.error(err);
+                             }
+                        }).render('#paypal-button-container-P-0NG78849KT7633344NAABLGI');
+                    </script>
+
+                    <p><a href="terminosycondiciones.html" target="_blank">Terms & Conditions Apply</a>.</p> </div>
+            </div>
+
+            <div class="trust-badges">
+                 <p>Secure payment guaranteed by PayPal.</p> </div>
+
+
+            <div class="value-prop-section">
+                <h3>Stay Ahead of the Curve</h3> <p>TNV provides the key intelligence to understand and anticipate the **most relevant trends** across various areas.</p> </div>
+
+
+             <div class="testimonials-section">
+                 <h3>Real Results from Our Subscribers</h3> <div class="testimonial">
+                     <p>"TNV's information is incredibly diverse and always current. It helps me in both my professional and personal life."</p> <span class="author">- Sofía M., Content Creator</span> </div>
+                  <div class="testimonial">
+                      <p>"From tech to fashion, TNV covers what truly matters in a concise and elegant way."</p> <span class="author">- Carlos D., Designer & Tech Enthusiast</span> </div>
+                  </div>
+
         </div>
     </div>
+
+     <div class="footer">
+         <p>© 2023 Trending Now Vlog. All rights reserved. | <a href="#">Privacy Policy</a></p> </div>
 
 </body>
 </html>
