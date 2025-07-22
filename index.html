@@ -496,37 +496,47 @@ src="https://www.facebook.com/tr?id=1096340025733365&ev=PageView&noscript=1"
                 <div class="content"> <h3>Exclusive Trial for Just $5!</h3> <p>Join our community of over <strong>+100,000</strong> visionaries and get **instant** access to our premium content:</p> <ul>
                         <li>Cutting-edge market analysis and **business opportunities**.</li> <li>Actionable **digital marketing and technology** strategies.</li> <li>The latest **trends in fashion and lifestyle**.</li> <li>Exclusive reports and **key daily news**.</li> </ul>
 
-                    <div id="paypal-button-container-P-0NG78849KT7633344NAABLGI" class="paypal-button-container"></div>
-                    <script src="https://www.paypal.com/sdk/js?client-id=ASqCGJWPu5V-j2e_LLMclfSgkThP4CuDiyPQcbxxYA3oHsVKYImYid9kKds1qsLWG9zsRELUHgs8pGIE&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
-                    <script>
-                        paypal.Buttons({
-                            style: {
-                                shape: 'pill',
-                                color: 'gold', /* Gold is attention-grabbing */
-                                layout: 'vertical',
-                                label: 'subscribe',
-                                 height: 50, /* Taller button */
-                                 tagline: 'false' /* Hide PayPal tagline */
-                            },
-                            createSubscription: function(data, actions) {
-                                return actions.subscription.create({
-                                    plan_id: 'P-0NG78849KT7633344NAABLGI'
-                                });
-                            },
-                            onApprove: function(data, actions) {
-                                alert('Subscription successful! Your Subscription ID: ' + data.subscriptionID); // Translated alert
-                                // ** IMPORTANT: Redirect to a thank you page or handle post-subscription logic here **
-                                // window.location.href = 'thank_you_page.html';
-                            },
-                             onCancel: function (data) {
-                                 alert('Subscription cancelled.'); // Translated alert
-                             },
-                             onError: function (err) {
-                                 alert('An error occurred during the subscription process. Please try again.'); // Translated alert
-                                 console.error(err);
-                             }
-                        }).render('#paypal-button-container-P-0NG78849KT7633344NAABLGI');
-                    </script>
+                   <div id="paypal-button-container-P-20K23719VG1386344NB7TLAA"></div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=ASqCGJWPu5V-j2e_LLMclfSgkThP4CuDiyPQcbxxYA3oHsVKYImYid9kKds1qsLWG9zsRELUHgs8pGIE&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+
+<script>
+
+  paypal.Buttons({
+
+      style: {
+
+          shape: 'pill',
+
+          color: 'white',
+
+          layout: 'vertical',
+
+          label: 'subscribe'
+
+      },
+
+      createSubscription: function(data, actions) {
+
+        return actions.subscription.create({
+
+          /* Creates the subscription */
+
+          plan_id: 'P-20K23719VG1386344NB7TLAA'
+
+        });
+
+      },
+
+      onApprove: function(data, actions) {
+
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+
+      }
+
+  }).render('#paypal-button-container-P-20K23719VG1386344NB7TLAA'); // Renders the PayPal button
+
+</script>
 
                     <p><a href="terminosycondiciones.html" target="_blank">Terms & Conditions Apply</a>.</p> </div>
             </div>
